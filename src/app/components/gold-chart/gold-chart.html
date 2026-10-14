@@ -1,0 +1,142 @@
+<section
+  id="trend"
+  dir="rtl"
+  class="max-w-7xl mx-auto px-4 sm:px-6 py-16">
+
+  <!-- Heading -->
+  <div class="mb-10">
+
+    <span class="text-[#D9B76E] text-sm font-semibold tracking-widest">
+      GOLD ANALYTICS
+    </span>
+
+    <h2 class="text-3xl md:text-4xl font-bold text-[#F7E9CA] mt-3">
+      تغير أسعار الذهب
+    </h2>
+
+    <p class="text-gray-400 mt-3">
+      تابعي اتجاه أسعار الذهب عيار 24 خلال الفترة المختارة
+    </p>
+
+  </div>
+
+  <!-- Chart Card -->
+  <div
+    class="bg-[#18243A] border border-[#D9B76E]/20
+           rounded-2xl p-5 sm:p-8">
+
+    <!-- Chart Header -->
+    <div class="flex flex-col sm:flex-row
+                justify-between sm:items-center gap-5 mb-8">
+
+      <div>
+        <h3 class="text-xl font-bold text-[#F7E9CA]">
+          حركة سعر الذهب
+        </h3>
+
+        <p class="text-gray-400 text-sm mt-2">
+          سعر الجرام بالريال العُماني
+        </p>
+      </div>
+
+      <!-- Period Buttons -->
+      <div class="flex items-center gap-3">
+
+        <button
+          type="button"
+          (click)="changePeriod(7)"
+          [class.bg-[#D9B76E]]="selectedPeriod() === 7"
+          [class.text-[#101827]]="selectedPeriod() === 7"
+          [class.text-[#D9B76E]]="selectedPeriod() !== 7"
+          class="px-5 py-3 rounded-xl border
+                 border-[#D9B76E]/40
+                 font-semibold transition-all">
+
+          7 أيام
+
+        </button>
+
+        <button
+          type="button"
+          (click)="changePeriod(30)"
+          [class.bg-[#D9B76E]]="selectedPeriod() === 30"
+          [class.text-[#101827]]="selectedPeriod() === 30"
+          [class.text-[#D9B76E]]="selectedPeriod() !== 30"
+          class="px-5 py-3 rounded-xl border
+                 border-[#D9B76E]/40
+                 font-semibold transition-all">
+
+          30 يومًا
+
+        </button>
+
+      </div>
+
+    </div>
+
+    <!-- Chart -->
+    <div class="overflow-x-auto">
+
+      <svg
+        viewBox="0 0 600 270"
+        class="w-full min-w-[500px] h-auto"
+        role="img"
+        aria-label="رسم بياني تجريبي لأسعار الذهب">
+
+        <!-- Grid -->
+        <line x1="40" y1="40" x2="560" y2="40"
+              stroke="#ffffff20" />
+
+        <line x1="40" y1="130" x2="560" y2="130"
+              stroke="#ffffff20" />
+
+        <line x1="40" y1="220" x2="560" y2="220"
+              stroke="#ffffff20" />
+
+        <!-- Price Labels -->
+        <g fill="#B8C3D4" font-size="12">
+          <text x="5" y="44">55</text>
+          <text x="5" y="134">52.5</text>
+          <text x="5" y="224">50</text>
+        </g>
+
+        <!-- Gold Price Line -->
+        <polyline
+          [attr.points]="chartPoints()"
+          fill="none"
+          stroke="#D9B76E"
+          stroke-width="3"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+
+        <!-- Day Labels -->
+        <g fill="#B8C3D4"
+           font-size="12"
+           text-anchor="middle">
+
+          <text x="40" y="250">
+            {{ selectedPeriod() === 7 ? '1' : '1' }}
+          </text>
+
+          <text x="300" y="250">
+            {{ selectedPeriod() === 7 ? '4' : '15' }}
+          </text>
+
+          <text x="560" y="250">
+            {{ selectedPeriod() === 7 ? '7' : '30' }}
+          </text>
+
+        </g>
+
+      </svg>
+
+    </div>
+
+    <p class="text-gray-400 text-xs mt-6">
+      * البيانات المعروضة تجريبية وليست أسعارًا تاريخية حقيقية.
+    </p>
+
+  </div>
+
+</section>

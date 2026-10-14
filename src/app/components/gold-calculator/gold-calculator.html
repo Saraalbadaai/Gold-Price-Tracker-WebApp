@@ -1,0 +1,114 @@
+<section
+  id="calculator"
+  dir="rtl"
+  class="max-w-7xl mx-auto px-4 sm:px-6 py-16">
+
+  <!-- Section Header -->
+  <div class="mb-10">
+
+    <span class="text-[#D9B76E] text-sm font-semibold tracking-widest">
+      GOLD CALCULATOR
+    </span>
+
+    <h2 class="text-3xl md:text-4xl font-bold text-[#F7E9CA] mt-3">
+      حاسبة قيمة الذهب
+    </h2>
+
+    <p class="text-gray-400 mt-3">
+      احسبي القيمة التقديرية للذهب حسب العيار والوزن
+    </p>
+
+  </div>
+
+  <!-- Calculator Card -->
+  <div
+    class="bg-[#18243A] border border-[#D9B76E]/20
+           rounded-2xl p-5 sm:p-8 max-w-3xl mx-auto
+           shadow-[0_15px_40px_rgba(0,0,0,0.12)]">
+
+    <!-- Input Fields -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+
+      <!-- Karat -->
+      <div>
+        <label for="karat"
+               class="block text-[#F7E9CA] font-semibold mb-3">
+          عيار الذهب
+        </label>
+
+        <select
+          id="karat"
+          [(ngModel)]="selectedKarat"
+          class="w-full bg-[#101827] text-white
+                 border border-[#D9B76E]/30
+                 rounded-xl px-4 py-4
+                 focus:outline-none focus:border-[#D9B76E]
+                 transition-colors">
+
+          @for (gold of goldPrices; track gold.karat) {
+            <option [ngValue]="gold.karat">
+              عيار {{ gold.karat }}
+            </option>
+          }
+
+        </select>
+      </div>
+
+      <!-- Weight -->
+      <div>
+        <label for="weight"
+               class="block text-[#F7E9CA] font-semibold mb-3">
+          الوزن بالجرام
+        </label>
+
+        <input
+          id="weight"
+          type="number"
+          min="0"
+          step="0.01"
+          [(ngModel)]="weight"
+          placeholder="مثال: 5"
+          class="w-full bg-[#101827] text-white
+                 border border-[#D9B76E]/30
+                 rounded-xl px-4 py-4
+                 placeholder:text-gray-500
+                 focus:outline-none focus:border-[#D9B76E]
+                 transition-colors">
+
+      </div>
+
+    </div>
+
+    <!-- Result -->
+    <div
+      class="mt-8 bg-gradient-to-l from-[#D9B76E] to-[#F0D394]
+             rounded-2xl p-6 sm:p-8">
+
+      <p class="text-[#243450] text-sm font-medium mb-3">
+        القيمة الإجمالية التقديرية
+      </p>
+
+      <h3 class="text-3xl sm:text-4xl font-bold text-[#101827]">
+        {{ totalPrice.toFixed(3) }} ر.ع
+      </h3>
+
+      <div class="border-t border-[#101827]/20 mt-5 pt-4">
+        <p class="text-[#243450] text-sm">
+          سعر الجرام:
+          <span class="font-bold">
+            {{ pricePerGram.toFixed(3) }} ر.ع
+          </span>
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Disclaimer -->
+    <p class="text-gray-400 text-xs mt-6 leading-6">
+      * الأسعار تجريبية لأغراض تعليمية، ولا تشمل
+      المصنعية أو الضرائب أو أي رسوم إضافية.
+    </p>
+
+  </div>
+
+</section>

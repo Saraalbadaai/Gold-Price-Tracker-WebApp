@@ -1,0 +1,96 @@
+<section
+  id="prices"
+  dir="rtl"
+  class="max-w-7xl mx-auto px-4 sm:px-6 py-16">
+
+  <!-- Section Heading -->
+  <div class="mb-10">
+
+    <span class="text-[#D9B76E] text-sm font-semibold tracking-widest">
+      GOLD MARKET
+    </span>
+
+    <h2 class="text-3xl md:text-4xl font-bold text-[#F7E9CA] mt-3">
+      أسعار الذهب اليوم
+    </h2>
+
+    <p class="text-gray-400 mt-3">
+      اكتشفي أسعار الذهب بمختلف العيارات بالريال العُماني
+    </p>
+
+  </div>
+
+  <!-- Gold Cards -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+    @for (gold of goldPrices; track gold.karat) {
+
+      <div
+        class="group relative overflow-hidden
+               bg-[#18243A] border border-[#D9B76E]/20
+               rounded-2xl p-7
+               hover:border-[#D9B76E]/70
+               hover:-translate-y-2
+               hover:shadow-[0_15px_40px_rgba(217,183,110,0.12)]
+               transition-all duration-300">
+
+        <!-- Decorative Glow -->
+        <div class="absolute -top-12 -left-12
+                    w-32 h-32 rounded-full
+                    bg-[#D9B76E]/5 blur-2xl
+                    pointer-events-none">
+        </div>
+
+        <!-- Card Top -->
+        <div class="relative flex justify-between items-center mb-8">
+
+          <span class="text-sm text-gray-400">
+            {{ gold.label }}
+          </span>
+
+          <div class="w-11 h-11 rounded-xl
+                      bg-[#D9B76E]/10
+                      border border-[#D9B76E]/20
+                      flex items-center justify-center">
+
+            <span class="text-[#D9B76E] text-2xl">✦</span>
+
+          </div>
+
+        </div>
+
+        <!-- Karat -->
+        <h3 class="relative text-2xl font-bold text-[#F7E9CA] mb-5">
+          ذهب عيار {{ gold.karat }}
+        </h3>
+
+        <!-- Price -->
+        <p class="relative text-3xl font-bold text-[#D9B76E]">
+          {{ gold.price.toFixed(3) }}
+        </p>
+
+        <p class="text-gray-400 text-sm mt-2">
+          ريال عُماني / جرام
+        </p>
+
+        <!-- Bottom -->
+        <div class="border-t border-white/10 mt-7 pt-5">
+
+          <span class="text-xs text-gray-400">
+            السعر التقديري للجرام
+          </span>
+
+        </div>
+
+      </div>
+
+    }
+
+  </div>
+
+  <!-- Disclaimer -->
+  <p class="text-gray-500 text-xs mt-6">
+    * الأسعار المعروضة تجريبية لأغراض تعليمية.
+  </p>
+
+</section>
