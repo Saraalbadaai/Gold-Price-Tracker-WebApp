@@ -1,0 +1,28 @@
+<div class="bg-[#18243A] border border-[#D9B76E]/30
+            rounded-2xl p-6 text-center">
+
+  <!-- Display data received from Parent -->
+  <h3 class="text-[#F7E9CA] text-2xl font-bold">
+    ذهب عيار {{ karat }}
+  </h3>
+
+  <p class="text-[#D9B76E] text-3xl font-bold mt-4">
+    {{ price.toFixed(3) }} ر.ع
+  </p>
+
+  <p class="text-gray-400 text-sm mt-2">
+    سعر الجرام
+  </p>
+
+  <!-- Send event to Parent -->
+  <button
+    type="button"
+    (click)="selectGold()"
+    class="bg-[#D9B76E] text-[#101827]
+           px-5 py-3 rounded-xl mt-5 font-semibold">
+
+    اختيار العيار
+
+  </button>
+
+</div>
